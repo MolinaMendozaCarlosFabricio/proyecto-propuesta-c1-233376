@@ -1,0 +1,13 @@
+<button (click)="open_form_add_salon()">Agregar salón</button>
+<div *ngIf="activar_add_salon">
+    <button (click)="close_form_add_salon()">x</button>
+    <app-add-form-salones></app-add-form-salones>
+    <button (click)="close_form_add_salon()">Cerrar</button>
+</div>
+<button (click)="open_form_edit_salon()">Editar Salón</button>
+<div *ngIf="activar_edit_salon">
+    <button (click)="close_form_edit_salon()">x</button>
+    <app-edit-form-salones></app-edit-form-salones>
+    <button (click)="close_form_edit_salon()">Cerrar</button>
+</div>
+<app-table-salones></app-table-salones>
