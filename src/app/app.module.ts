@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SalonesModule } from './salones/salones.module';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { SalonesModule } from './salones/salones.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SalonesModule
+    SalonesModule,
+    RouterLink
   ],
   providers: [],
   bootstrap: [AppComponent]
