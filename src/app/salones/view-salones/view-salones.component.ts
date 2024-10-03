@@ -15,18 +15,20 @@ export class ViewSalonesComponent {
 
   open_form_add_salon (): void {
     this.activar_add_salon = true;
+    this.activar_edit_salon = false;
   }
 
   close_form_add_salon (): void {
-    this.activar_add_salon = false
+    this.activar_add_salon = false;
   }
 
   open_form_edit_salon (): void {
     this.activar_edit_salon = true;
+    this.activar_add_salon = false;
   }
 
   close_form_edit_salon (): void {
-    this.activar_edit_salon = false
+    this.activar_edit_salon = false;
   }
 
   refreshTable (): void {
