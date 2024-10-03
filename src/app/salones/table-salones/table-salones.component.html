@@ -1,5 +1,5 @@
-<table>
-    <thead>
+<table class="table_salones">
+    <thead class="table_salones-header">
         <tr>
             <th>ID</th>
             <th>Nombre del salón</th>
@@ -7,17 +7,18 @@
             <th>Código postal</th>
             <th>Cantidad de sillas</th>
             <th>Cantidad de mesas</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let salon of salones">
+        <tr *ngFor="let salon of salones" class="table_salones-salones">
             <td>{{ salon.id_salon }}</td>
             <td>{{ salon.nombre_salon }}</td>
             <td>No. {{ salon.no_domicilio_salon }}, Calle {{ salon.calle_salon }}, Colonia {{ salon.colonia_salon }}, {{ salon.ciudad_salon }}</td>
             <td>{{ salon.codigo_postal_salon }}</td>
             <td>{{ salon.cantidad_sillas_salon }}</td>
             <td>{{ salon.cantidad_mesas_salon }}</td>
-            <td><button (click)="delete_salon(salon.id_salon)">Delete</button></td>
+            <td><button class="table_salones-salones-button_delete" (click)="delete_salon(salon.id_salon)">Delete</button></td>
         </tr>
     </tbody>
 </table>

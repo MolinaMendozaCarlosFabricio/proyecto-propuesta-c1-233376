@@ -1,4 +1,4 @@
-.table_salones {
+.table_eventos {
     position: relative;
     border: 1px solid rgb(157, 157, 157);
     border-radius: 5px;
@@ -10,41 +10,41 @@
     margin-bottom: 3%;
 }
 
-.table_salones-header {
+.table_eventos-header {
     background-color: rgb(213, 213, 213);
 }
 
-.table_salones-salones {
+.table_eventos-salones {
     background-color: white;
 }
 
-.table_salones-salones td {
+.table_eventos-salones td {
     border-bottom: 1px solid rgb(157, 157, 157);
     border-right: 1px solid rgb(157, 157, 157);
     padding: 3vh;
 }
 
-.table_salones-salones tr:last-child td {
+.table_eventos-salones tr:last-child td {
     border-bottom: none;
 }
 
-.table_salones-salones td:last-child {
+.table_eventos-salones td:last-child {
     border-right: none;
 }
 
-#table_salones tr:first-child td:first-child {
+.table_eventos tr:first-child td:first-child {
     border-top-left-radius: 5px;
 }
 
-#table_salones tr:first-child td:last-child {
+.table_eventos tr:first-child td:last-child {
     border-top-right-radius: 5px;
 }
 
-#table_salones tr:last-child td:first-child {
+.table_eventos tr:last-child td:first-child {
     border-bottom-left-radius: 5px;
 }
 
-#table_salones tr:last-child td:last-child {
+.table_eventos tr:last-child td:last-child {
     border-bottom-right-radius: 5px;
 }
 
@@ -52,7 +52,7 @@ tr:hover{
     background-color: rgb(213, 213, 213);
 }
 
-.table_salones-salones-button_delete button {
+.table_eventos-salones-button_delete button {
     width: 100%;
     height: 100%;
 }

@@ -1,0 +1,27 @@
+<h4>Editar info. del evento</h4>
+<label for="id-salon">Ingrese el ID del evento</label>
+<input type="number" name="id-salon" [(ngModel)]="id_search">
+<button (click)="searchEvento()">Buscar</button>
+<div *ngIf="event_is_found">
+    <p>Datos del reservador</p>
+    <label for="nombre-reservador">Nombre del reservador</label>
+    <input type="text" name="nombre-reservador" [(ngModel)]="editEvent.nombre_reservador">
+    <label for="apellido-reservador">Apellidos del reservador</label>
+    <input type="text" name="apellido-reservador" [(ngModel)]="editEvent.apellido_reservador">
+    <label for="correo-reservador">Correo del reservador</label>
+    <input type="text" name="correo-reservador" [(ngModel)]="editEvent.correo_reservador">
+    <label for="telefono-reservador">No. de teléfono del reservador</label>
+    <input type="text" name="telefono-reservador" [(ngModel)]="editEvent.telefono_reservador">
+    <p>Información del evento</p>
+    <label for="giro-evento">Giro del evento</label>
+    <input type="text" name="giro-evento" [(ngModel)]="editEvent.giro_evento">
+    <label for="cantidad-invitados">Cantidad de invitados</label>
+    <input type="number" name="cantidad-invitados" [(ngModel)]="editEvent.cantidad_invitados_evento">
+    <label for="costo-evento">Costo del evento</label>
+    <input type="number" name="costo-evento" [ngModel]="editEvent.costo_evento">
+    <select [(ngModel)]="editEvent.estado_evento">
+        <option *ngFor="let option of options" [value]="option">{{option}}</option>
+    </select>
+    <p></p>
+    <button (click)="edit_evento()">Guardar cambios</button>
+</div>
