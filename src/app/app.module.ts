@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SalonesModule } from './salones/salones.module';
 import { RouterLink } from '@angular/router';
 import { EventosModule } from "./eventos/eventos.module";
+import { AgendasModule } from './agendas/agendas.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { EventosModule } from "./eventos/eventos.module";
     BrowserModule,
     AppRoutingModule,
     SalonesModule,
+    AgendasModule,
     RouterLink,
     EventosModule
 ],
