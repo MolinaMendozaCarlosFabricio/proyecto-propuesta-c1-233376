@@ -1,13 +1,20 @@
-import { Component, ViewChild } from '@angular/core';
-import { TableSalonesComponent } from '../table-salones/table-salones.component';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { ListServicesService } from '../services/list-services.service';
+import { EntitySalones } from '../interface/entity-salones';
 
 @Component({
   selector: 'app-view-salones',
   templateUrl: './view-salones.component.html',
   styleUrl: './view-salones.component.css'
 })
-export class ViewSalonesComponent {
-  @ViewChild(TableSalonesComponent) tableSalonesComponent!: TableSalonesComponent;
+export class ViewSalonesComponent implements OnInit {
+  list_salones: EntitySalones[] = []
+
+  constructor(private listSalonesServices: ListServicesService){}
+
+  ngOnInit(): void {
+      this.list_salones = this.listSalonesServices.getSalones();
+  }
 
   activar_add_salon: boolean = false;
 
@@ -30,9 +37,4 @@ export class ViewSalonesComponent {
   close_form_edit_salon (): void {
     this.activar_edit_salon = false;
   }
-
-  refreshTable (): void {
-    this.tableSalonesComponent.print_salones();
-  }
-
 }

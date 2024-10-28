@@ -1,0 +1,26 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Número de teléfono</th>
+            <th>Salón al que pertenece</th>
+            <th>Sueldo</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleado of personal">
+            <td>{{empleado.id_personal}}</td>
+            <td>{{ empleado.nombre_personal }}</td>
+            <td>{{ empleado.apellido_personal }}</td>
+            <td>{{empleado.phone_personal}}</td>
+            <app-item-personal [id_salon_to_search]="empleado.id_salon_pertenece"></app-item-personal>
+            <td>{{empleado.sueldo_personal}}</td>
+            <td>{{empleado.estado_personal}}</td>
+            <td><button (click)="down_this_personal(empleado.id_personal)">Dar de baja</button></td>
+        </tr>
+    </tbody>
+</table>

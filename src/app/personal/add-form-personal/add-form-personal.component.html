@@ -1,0 +1,20 @@
+<main>
+    <h3>Registrar Personal</h3>
+    <label>Nombre del personal</label>
+    <input type="text" [(ngModel)]="newPersonal.nombre_personal">
+
+    <label>Apellido del personal</label>
+    <input type="text" [(ngModel)]="newPersonal.apellido_personal">
+
+    <label>Número del personal</label>
+    <input type="tel" [(ngModel)]="newPersonal.phone_personal">
+
+    <label>Asignar salón</label>
+    <select [(ngModel)]="newPersonal.id_salon_pertenece">
+        <option *ngFor="let salon of list_options_salones" [value]="salon.id_salon">{{salon.nombre_salon}}</option>
+    </select>
+
+    <label>Sueldo</label>
+    <input type="number" [(ngModel)]="newPersonal.sueldo_personal">
+    <button (click)="addPersonal()">Registrar</button>
+</main>

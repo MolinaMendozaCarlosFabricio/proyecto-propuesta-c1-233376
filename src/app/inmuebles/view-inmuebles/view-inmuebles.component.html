@@ -1,0 +1,15 @@
+<main>
+    <div>
+        <button (click)="open_form_add_inmueble()">Registrar inmuebles</button>
+        <button (click)="open_form_edit_inmueble()">Editar inmuebles</button>
+        <div *ngIf="activar_add_inmueble">
+            <app-add-form-inmuebles [new_id_inmueble]="list_inmuebles.length"></app-add-form-inmuebles>
+            <button (click)="close_form_add_inmueble()">Cerrar</button>
+        </div>
+        <div *ngIf="activar_edit_inmueble">
+            <app-edit-form-inmuebles></app-edit-form-inmuebles>
+            <button (click)="close_form_edit_inmueble()">Cerrar</button>
+        </div>
+        <app-table-inmuebles [list_inmuebles]="list_inmuebles"></app-table-inmuebles>
+    </div>
+</main>

@@ -1,0 +1,23 @@
+<main>
+    <h4>Editar empleado</h4>
+    <label>Ingrese el id del empleado a editar</label>
+    <p *ngIf="dont_exists">El empleado no existe</p>
+    <input type="number" [(ngModel)]="id_search">
+    <button (click)="searchPersonal()">Buscar</button>
+    <div *ngIf="empleado_is_found">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="editEmpleado.nombre_personal">
+        <label>Apellidos</label>
+        <input type="text" [(ngModel)]="editEmpleado.apellido_personal">
+        <label>Número de teléfono</label>
+        <input type="text" [(ngModel)]="editEmpleado.phone_personal">
+        <label>Salón asignado</label>
+        <select [(ngModel)]="editEmpleado.id_salon_pertenece">
+            <option *ngFor="let salon of list_salones" [value]="salon.id_salon">{{salon.nombre_salon}}</option>
+        </select>
+        <label>Sueldo</label>
+        <input type="number" [(ngModel)]="editEmpleado.sueldo_personal">
+
+        <button (click)="editPersonal()">Editar</button>
+    </div>
+</main>

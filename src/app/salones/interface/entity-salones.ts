@@ -8,4 +8,5 @@ export interface EntitySalones {
     codigo_postal_salon: number,
     cantidad_sillas_salon: number,
     cantidad_mesas_salon: number,
+    estado_salon: string,
 }

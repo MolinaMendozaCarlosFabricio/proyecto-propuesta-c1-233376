@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre del inmueble</th>
+            <th>Cantidad del inmueble disponible</th>
+            <th>Cantidad del inmueble ocupado</th>
+            <th>Salón asignado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let inmueble of list_inmuebles">
+            <td>{{inmueble.id_inmueble}}</td>
+            <td>{{inmueble.nombre_inmueble}}</td>
+            <td>{{inmueble.cantidad_disponible_inmueble}}</td>
+            <td>{{inmueble.cantidad_ocupada_inmueble}}</td>
+            <app-item-inmuebles [id_salon_asignado]="inmueble.id_salon_asignado"></app-item-inmuebles>
+        </tr>
+    </tbody>
+</table>

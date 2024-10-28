@@ -7,6 +7,8 @@ import { SalonesModule } from './salones/salones.module';
 import { RouterLink } from '@angular/router';
 import { EventosModule } from "./eventos/eventos.module";
 import { AgendasModule } from './agendas/agendas.module';
+import { PersonalModule } from './personal/personal.module';
+import { InmueblesModule } from './inmuebles/inmuebles.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { AgendasModule } from './agendas/agendas.module';
     BrowserModule,
     AppRoutingModule,
     SalonesModule,
+    PersonalModule,
+    InmueblesModule,
     AgendasModule,
     RouterLink,
     EventosModule

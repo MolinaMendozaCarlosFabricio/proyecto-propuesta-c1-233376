@@ -1,0 +1,15 @@
+<main>
+    <div>
+        <button (click)="open_form_add_personal()">Registrar personal</button>
+        <button (click)="open_form_edit_personal()">Editar personal</button>
+        <div *ngIf="activar_add_personal">
+            <app-add-form-personal [new_id_personal]="list_personal.length"></app-add-form-personal>
+            <button (click)="close_form_add_personal()">Cerrar</button>
+        </div>
+        <div *ngIf="activar_edit_personal">
+            <app-edit-form-personal></app-edit-form-personal>
+            <button (click)="close_form_edit_personal()">Cerrar</button>
+        </div>
+        <app-tabke-personal [personal]="list_personal"></app-tabke-personal>
+    </div>
+</main>

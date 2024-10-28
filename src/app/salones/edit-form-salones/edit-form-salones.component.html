@@ -1,5 +1,6 @@
 <h4>Editar info. del salón</h4>
 <label for="id-salon">Ingrese el ID del salón</label>
+<p *ngIf="dont_exists">Este salón no existe</p>
 <input type="number" name="id-salon" [(ngModel)]="id_search">
 <button (click)="searchSalon()">Buscar</button>
 <div *ngIf="salon_is_found">
