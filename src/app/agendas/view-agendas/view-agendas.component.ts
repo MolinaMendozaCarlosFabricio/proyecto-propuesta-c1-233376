@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './view-agendas.component.html',
   styleUrl: './view-agendas.component.css'
 })
-export class ViewAgendasComponent {
-
+export class ViewAgendasComponent{
 }

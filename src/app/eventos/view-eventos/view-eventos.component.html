@@ -4,7 +4,7 @@
         <button (click)="open_edit_event()">Editar evento</button>
         <div *ngIf="activar_add_evento" class="view_eventos_body-content-form">
             <button (click)="close_add_event()" class="view_eventos_body-content-button_close">x</button>
-            <app-add-form-eventos></app-add-form-eventos>
+            <app-add-form-eventos [new_id_evento]="list_eventos.length"></app-add-form-eventos>
             <button (click)="close_add_event()">Cancel</button>
         </div>
         <div *ngIf="activar_edit_evento" class="view_eventos_body-content-form">
@@ -12,6 +12,6 @@
             <app-edit-form-eventos></app-edit-form-eventos>
             <button (click)="close_edit_event()">Cerrar</button>
         </div>
-        <app-table-eventos></app-table-eventos>
+        <app-table-eventos [eventos]="list_eventos"></app-table-eventos>
     </div>
 </main>

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ViewAgendasComponent } from './view-agendas/view-agendas.component';
 import { TableAgendasComponent } from './table-agendas/table-agendas.component';
 import { AddFormAgendasComponent } from './add-form-agendas/add-form-agendas.component';
-import { EditFormAgendasComponent } from './edit-form-agendas/edit-form-agendas.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InmuebleOptionAgendaComponent } from './inmueble-option-agenda/inmueble-option-agenda.component';
 
 
 
@@ -13,14 +13,16 @@ import { FormsModule } from '@angular/forms';
     ViewAgendasComponent,
     TableAgendasComponent,
     AddFormAgendasComponent,
-    EditFormAgendasComponent
+    InmuebleOptionAgendaComponent,
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
-    ViewAgendasComponent
+    ViewAgendasComponent,
+    AddFormAgendasComponent
   ]
 })
 export class AgendasModule { }

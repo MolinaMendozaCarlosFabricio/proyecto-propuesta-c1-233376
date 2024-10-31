@@ -3,11 +3,11 @@ import { EntitySalones } from "../../salones/interface/entity-salones";
 
 export interface EntityAgendas {
     id_agenda: number,
-    id_evento: EntityEventos | null,
-    id_salon: EntitySalones | null,
-    fecha_inicio: Date,
-    hora_inicio: Date,
-    fecha_fin: Date,
-    hora_fin: Date,
-    fecha_reserva: Date,
+    id_evento: number,
+    id_salon: number,
+    fecha_hora_evento: Date | null,
+    duracion_horas_evento: number,
+    fecha_reserva: Date | null,
+    ids_personal_reservado: number[],
+    ids_inmuebles_reservados: number[],
 }

@@ -1,1 +1,37 @@
-<p>add-form-agendas works!</p>
+<main>
+    <h3>Agendar evento</h3>
+
+    <label>Asignar salón</label>
+    <select [(ngModel)]="newAgenda.id_salon">
+        <option *ngFor="let salon of list_salones" [value]="salon.id_salon">{{salon.nombre_salon}}</option>
+    </select>
+
+    <label>Fecha del evento</label>
+    <input type="date" [(ngModel)]="new_fecha">
+
+    <label>Hora del evento</label>
+    <input type="time" [(ngModel)]="new_hora">
+
+    <label>Duración del evento (horas)</label>
+    <input type="number" [(ngModel)]="newAgenda.duracion_horas_evento">
+
+    <label>Asignar personal</label>
+    <div>
+        <div *ngFor="let empleado of list_empleados">
+            <div *ngIf="empleado.estado_personal === 'Activo'">
+                <p>{{empleado.id_personal}}._ {{empleado.nombre_personal}} {{empleado.apellido_personal}}</p>
+                <button *ngIf="!thisEmpleadoIsAlreadyAsignado(empleado.id_personal); else isAsigned" (click)="asignarEmpleado(empleado.id_personal)">Agendar</button>
+                <ng-template #isAsigned>
+                    <button (click)="quitarEmpleado(empleado.id_personal)">Desagendar</button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div *ngFor="let inmueble of list_inmuebles">
+            <p>{{inmueble.nombre_inmueble}}</p>
+            <input type="number">
+            <p>Inmueble disponible: {{inmueble.cantidad_disponible_inmueble}}</p> 
+        </div>
+    </div>
+</main>

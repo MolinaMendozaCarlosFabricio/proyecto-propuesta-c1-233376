@@ -37,6 +37,15 @@ export class ListPersonalService {
     this.putPersonalIntoLocalStorage();
   }
 
+  ocuparPersonal(id_personal: number){
+    this.list_personal[id_personal].estado_personal = "Ocupado";
+    this.putPersonalIntoLocalStorage();
+  }
+
+  desocuparPersonal(id_personal: number){
+    this.list_personal[id_personal].estado_personal = "Activo";
+  }
+
   downPersonal(down_this_personal: number){
     this.list_personal[down_this_personal].estado_personal = "Dado de baja";
     this.putPersonalIntoLocalStorage();

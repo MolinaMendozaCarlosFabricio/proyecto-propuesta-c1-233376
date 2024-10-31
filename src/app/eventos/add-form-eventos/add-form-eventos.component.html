@@ -1,19 +1,31 @@
-<h4>Registrar evento</h4>
-<p>Datos del reservador</p>
-<label for="nombre-reservador">Nombre del reservador</label>
-<input type="text" name="nombre-reservador" [(ngModel)]="newEvento.nombre_reservador">
-<label for="apellido-reservador">Apellido del reservador</label>
-<input type="text" name="apellido-reservador" [(ngModel)]="newEvento.apellido_reservador">
-<label for="correo-reservador">Correo electrónico del reservador</label>
-<input type="text" name="correo-reservador" [(ngModel)]="newEvento.correo_reservador">
-<label for="telefono-reservador">No. de teléfono del reservador</label>
-<input type="text" name="telefono-reservador" [(ngModel)]="newEvento.telefono_reservador">
-<p>Administración del evento</p>
-<label for="giro-evento">Giro del evento</label>
-<input type="text" name="giro-evento" [(ngModel)]="newEvento.giro_evento">
-<label for="cantidad-invitados-evento">Cantidad de invitados</label>
-<input type="number" name="cantidad-invitados-evento" [(ngModel)]="newEvento.cantidad_invitados_evento">
-<label for="costo-evento">Costo del evento</label>
-<input type="number" name="costo-evento" [(ngModel)]="newEvento.costo_evento">
-<p></p>
-<button (click)="add_evento()">Guardar</button>
+<div *ngIf="open_this_form">
+    <h4>Registrar evento</h4>
+    <p>Datos del reservador</p>
+    <label for="nombre-reservador">Nombre del reservador</label>
+    <input type="text" name="nombre-reservador" [(ngModel)]="newEvento.nombre_reservador">
+
+    <label for="apellido-reservador">Apellido del reservador</label>
+    <input type="text" name="apellido-reservador" [(ngModel)]="newEvento.apellido_reservador">
+
+    <label for="correo-reservador">Correo electrónico del reservador</label>
+    <input type="text" name="correo-reservador" [(ngModel)]="newEvento.correo_reservador">
+
+    <label for="telefono-reservador">No. de teléfono del reservador</label>
+    <input type="text" name="telefono-reservador" [(ngModel)]="newEvento.telefono_reservador">
+
+    <p>Administración del evento</p>
+
+    <label for="giro-evento">Giro del evento</label>
+    <input type="text" name="giro-evento" [(ngModel)]="newEvento.giro_evento">
+
+    <label for="cantidad-invitados-evento">Cantidad de invitados</label>
+    <input type="number" name="cantidad-invitados-evento" [(ngModel)]="newEvento.cantidad_invitados_evento">
+
+    <label for="costo-evento">Costo del evento</label>
+    <input type="number" name="costo-evento" [(ngModel)]="newEvento.costo_evento">
+    <p></p>
+    <button (click)="add_evento()">Siguiente</button>
+</div>
+<div *ngIf="open_agendar">
+    <app-add-form-agendas></app-add-form-agendas>
+</div>
