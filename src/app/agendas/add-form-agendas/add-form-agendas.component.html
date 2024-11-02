@@ -29,9 +29,15 @@
     </div>
     <div>
         <div *ngFor="let inmueble of list_inmuebles">
-            <p>{{inmueble.nombre_inmueble}}</p>
-            <input type="number">
-            <p>Inmueble disponible: {{inmueble.cantidad_disponible_inmueble}}</p> 
+            <div *ngIf="inmueble.estado_inmueble === 'Activo'">
+                <p>{{inmueble.id_inmueble}}._ {{inmueble.nombre_inmueble}}</p>
+                <button *ngIf="!thisInmuebleIsAlreadyAsignado(inmueble.id_inmueble); else thisInmuebleWasAsigned" (click)="asignarInmueble(inmueble.id_inmueble)">Agendar</button>
+                <ng-template #thisInmuebleWasAsigned>
+                    <button (click)="quitarInmueble(inmueble.id_inmueble)">Desagendar</button>
+                </ng-template>
+            </div>
         </div>
     </div>
+
+    <button (click)="addAgenda()">Agendar</button>
 </main>

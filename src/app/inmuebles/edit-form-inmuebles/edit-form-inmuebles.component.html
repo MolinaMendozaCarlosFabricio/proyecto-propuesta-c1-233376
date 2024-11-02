@@ -10,9 +10,6 @@
         <label>Nombre del salón</label>
         <input type="text" [(ngModel)]="editInmueble.nombre_inmueble">
 
-        <label>Cantidad del inmueble</label>
-        <input type="number" [(ngModel)]="editInmueble.cantidad_disponible_inmueble">
-
         <label>Salón asignado</label>
         <select [(ngModel)]="editInmueble.id_salon_asignado">
             <option *ngFor="let salon of list_salones" [value]="salon.id_salon">{{salon.nombre_salon}}</option>

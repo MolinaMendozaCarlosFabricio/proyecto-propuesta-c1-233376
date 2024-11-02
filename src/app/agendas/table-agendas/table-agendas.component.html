@@ -1,1 +1,24 @@
-<p>table-agendas works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Evento Info.</th>
+            <th>Personal que participó</th>
+            <th>Inmuebles usados</th>
+            <th>Salón usado</th>
+            <th>Fecha del evento</th>
+            <th>Fecha de reserva</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let agenda of list_agendas">
+            <td>{{agenda.id_agenda}}</td>
+            <td><app-column-evento [id_evento]="agenda.id_evento" [dateEvento]="agenda.fecha_hora_evento"></app-column-evento></td>
+            <td><app-column-personal [list_personal_id]="agenda.ids_personal_reservado" [dateEvento]="agenda.fecha_hora_evento"></app-column-personal></td>
+            <td><app-column-inmueble [list_inmuebles_id]="agenda.ids_inmuebles_reservados" [dateEvento]="agenda.fecha_hora_evento"></app-column-inmueble></td>
+            <td><app-column-salon [id_salon]="agenda.id_salon"></app-column-salon></td>
+            <td> {{agenda.fecha_hora_evento}} </td>
+            <td> {{agenda.fecha_reserva}} </td>
+        </tr>
+    </tbody>
+</table>

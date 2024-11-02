@@ -17,8 +17,7 @@ export class AddFormInmueblesComponent implements OnInit {
   newInmueble: EntityInmuebles = {
     id_inmueble: 0,
     nombre_inmueble: "",
-    cantidad_disponible_inmueble: 0,
-    cantidad_ocupada_inmueble: 0,
+    estado_inmueble: "Activo",
     id_salon_asignado: 0
   }
 
@@ -34,8 +33,7 @@ export class AddFormInmueblesComponent implements OnInit {
     this.newInmueble = {
       id_inmueble: 0,
       nombre_inmueble: "",
-      cantidad_disponible_inmueble: 0,
-      cantidad_ocupada_inmueble: 0,
+      estado_inmueble: "Activo",
       id_salon_asignado: 0
     }
   }

@@ -5,7 +5,7 @@ export interface EntityAgendas {
     id_agenda: number,
     id_evento: number,
     id_salon: number,
-    fecha_hora_evento: Date | null,
+    fecha_hora_evento: Date,
     duracion_horas_evento: number,
     fecha_reserva: Date | null,
     ids_personal_reservado: number[],

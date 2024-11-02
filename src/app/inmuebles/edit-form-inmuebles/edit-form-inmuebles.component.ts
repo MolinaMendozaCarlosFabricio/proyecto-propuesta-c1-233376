@@ -14,8 +14,7 @@ export class EditFormInmueblesComponent {
   editInmueble: EntityInmuebles = {
     id_inmueble: 0,
     nombre_inmueble: "",
-    cantidad_disponible_inmueble: 0,
-    cantidad_ocupada_inmueble: 0,
+    estado_inmueble: "",
     id_salon_asignado: 0
   }
 
@@ -44,8 +43,7 @@ export class EditFormInmueblesComponent {
     this.editInmueble = {
       id_inmueble: 0,
       nombre_inmueble: "",
-      cantidad_disponible_inmueble: 0,
-      cantidad_ocupada_inmueble: 0,
+      estado_inmueble: "",
       id_salon_asignado: 0
     }
 

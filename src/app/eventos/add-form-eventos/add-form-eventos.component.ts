@@ -27,7 +27,7 @@ export class AddFormEventosComponent {
 
   open_this_form: boolean = true;
 
-  open_agendar: boolean = true; //cambiar
+  open_agendar: boolean = false; //cambiar
 
   constructor(private listEventosServices: ListEventosService, private viewEventosComponent: ViewEventosComponent) {}
 
@@ -46,8 +46,6 @@ export class AddFormEventosComponent {
       cantidad_invitados_evento: 0,
       costo_evento: 0,
     }
-
-    this.viewEventosComponent.close_add_event();
 
     this.open_agendar = true;
     this.open_this_form = false;

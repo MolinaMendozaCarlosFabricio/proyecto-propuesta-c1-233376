@@ -36,6 +36,11 @@ export class ListEventosService {
     this.putEventosIntoLocalStorage();
   }
 
+  finishEvento(id_evento: number){
+    this.list_eventos[id_evento].estado_evento = "Concluido";
+    this.putEventosIntoLocalStorage();
+  }
+
   cancelEvento(id_evento_to_cancel: number){
     this.list_eventos[id_evento_to_cancel].estado_evento = "Cancelado";
   }

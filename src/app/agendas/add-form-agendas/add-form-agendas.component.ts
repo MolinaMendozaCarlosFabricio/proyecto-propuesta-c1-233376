@@ -8,6 +8,7 @@ import { EntityInmuebles } from '../../inmuebles/interfaces/entity-inmuebles';
 import { ListServicesService } from '../../salones/services/list-services.service';
 import { ListPersonalService } from '../../personal/services/list-personal.service';
 import { ListInmueblesService } from '../../inmuebles/services/list-inmuebles.service';
+import { ViewEventosComponent } from '../../eventos/view-eventos/view-eventos.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { ListInmueblesService } from '../../inmuebles/services/list-inmuebles.se
   styleUrl: './add-form-agendas.component.css'
 })
 export class AddFormAgendasComponent implements OnInit {
-  constructor(private listAgendasServices: ListAgendaService, private listSalonesServices: ListServicesService, private listPersonalServices: ListPersonalService, private listInmueblesServices: ListInmueblesService){}
+  constructor(private listAgendasServices: ListAgendaService, private listSalonesServices: ListServicesService, private listPersonalServices: ListPersonalService, private listInmueblesServices: ListInmueblesService, private viewEventosComponent: ViewEventosComponent){}
 
   new_id_agenda: number = 0;
   list_salones: EntitySalones[] = [];
@@ -30,7 +31,7 @@ export class AddFormAgendasComponent implements OnInit {
     id_agenda: 0,
     id_evento: 0,
     id_salon: 0,
-    fecha_hora_evento: null,
+    fecha_hora_evento: new Date(),
     duracion_horas_evento: 0,
     fecha_reserva: null,
     ids_personal_reservado: [],
@@ -64,20 +65,45 @@ export class AddFormAgendasComponent implements OnInit {
   thisEmpleadoIsAlreadyAsignado(id_empleado: number): boolean{
     let bandera: boolean = false
     for(let i: number = 0; i < this.newAgenda.ids_personal_reservado.length; i++){
-      if(id_empleado == this.newAgenda.ids_personal_reservado[i])
+      if(id_empleado == this.newAgenda.ids_personal_reservado[i]){
         bandera = true;
         return bandera;
+      }
     }
       
     return false;
   }
 
-  asignarInmueble(inmuebleToAdd: EntityInmuebles){
+  asignarInmueble(id_inmueble: number){
+    this.newAgenda.ids_inmuebles_reservados.push(id_inmueble);
+  }
+
+  quitarInmueble(id_inmueble: number){
+    for(let i:number = 0; i < this.newAgenda.ids_inmuebles_reservados.length; i++){
+      if(id_inmueble == this.newAgenda.ids_inmuebles_reservados[i])
+        this.newAgenda.ids_inmuebles_reservados.splice(i, 1);
+    }
+  }
+
+  thisInmuebleWasAsigned: boolean = false;
+
+  thisInmuebleIsAlreadyAsignado(id_inmueble: number): boolean{
+    let bandera = false;
+    for(let i: number = 0; i < this.newAgenda.ids_inmuebles_reservados.length; i++){
+      if(id_inmueble == this.newAgenda.ids_inmuebles_reservados[i]){
+        bandera = true;
+        return bandera;
+      }
+    }
+
+    return false;
   }
 
   addAgenda(){
     this.newAgenda.id_agenda = this.new_id_agenda;
     this.newAgenda.id_evento = this.id_evento_to_link;
+    this.newAgenda.fecha_reserva = new Date();
+    this.newAgenda.fecha_hora_evento = new Date(`${this.new_fecha}T${this.new_hora}`)
 
     this.listAgendasServices.add(this.newAgenda);
 
@@ -85,15 +111,21 @@ export class AddFormAgendasComponent implements OnInit {
       this.listPersonalServices.ocuparPersonal(this.newAgenda.ids_personal_reservado[i]);
     }
 
+    for(let i: number = 0; i < this.newAgenda.ids_inmuebles_reservados.length; i++){
+      this.listInmueblesServices.ocuparInmueble(this.newAgenda.ids_inmuebles_reservados[i]);
+    }
+
     this.newAgenda = {
       id_agenda: 0,
       id_evento: 0,
       id_salon: 0,
-      fecha_hora_evento: null,
+      fecha_hora_evento: new Date(),
       duracion_horas_evento: 0,
       fecha_reserva: null,
       ids_personal_reservado: [],
       ids_inmuebles_reservados: [],
     }
+
+    this.viewEventosComponent.close_add_event();
   }
 }

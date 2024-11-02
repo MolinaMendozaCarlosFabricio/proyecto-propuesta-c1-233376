@@ -36,5 +36,20 @@ export class ListInmueblesService {
     this.putInmueblesIntoLocalStorage();
   }
 
+  downInmueble(id_inmueble: number){
+    this.list_inmuebles[id_inmueble].estado_inmueble = "Dado de baja";
+    this.putInmueblesIntoLocalStorage();
+  }
+
+  ocuparInmueble(id_inmueble: number){
+    this.list_inmuebles[id_inmueble].estado_inmueble = "Ocupado";
+    this.putInmueblesIntoLocalStorage();
+  }
+
+  desocuparInmueble(id_inmueble: number){
+    this.list_inmuebles[id_inmueble].estado_inmueble = "Activo";
+    this.putInmueblesIntoLocalStorage();
+  }
+
   constructor() { }
 }
