@@ -1,5 +1,5 @@
-<table>
-    <thead>
+<table class="table">
+    <thead class="table-header">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let empleado of personal">
+        <tr *ngFor="let empleado of personal" class="table-items">
             <td>{{empleado.id_personal}}</td>
             <td>{{ empleado.nombre_personal }}</td>
             <td>{{ empleado.apellido_personal }}</td>

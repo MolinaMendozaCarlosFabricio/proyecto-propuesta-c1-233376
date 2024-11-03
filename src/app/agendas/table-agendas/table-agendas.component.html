@@ -1,5 +1,5 @@
-<table>
-    <thead>
+<table class="table">
+    <thead class="table-header">
         <tr>
             <th>ID</th>
             <th>Evento Info.</th>
@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let agenda of list_agendas">
+        <tr *ngFor="let agenda of list_agendas" class="table-items">
             <td>{{agenda.id_agenda}}</td>
             <td><app-column-evento [id_evento]="agenda.id_evento" [dateEvento]="agenda.fecha_hora_evento"></app-column-evento></td>
             <td><app-column-personal [list_personal_id]="agenda.ids_personal_reservado" [dateEvento]="agenda.fecha_hora_evento"></app-column-personal></td>

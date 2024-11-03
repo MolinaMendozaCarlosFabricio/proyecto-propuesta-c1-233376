@@ -1,6 +1,6 @@
 <div>
-<table>
-    <thead>
+<table class="table">
+    <thead class="table-header">
         <tr>
             <th>ID</th>
             <th>Nombre del inmueble</th>
@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let inmueble of list_inmuebles">
+        <tr *ngFor="let inmueble of list_inmuebles" class="table-items">
             <td>{{inmueble.id_inmueble}}</td>
             <td>{{inmueble.nombre_inmueble}}</td>
             <td>{{inmueble.estado_inmueble}}</td>

@@ -3,18 +3,18 @@
 
     <label>Ingrese ID del salón</label>
     <p *ngIf="dont_exists">No existe el salón</p>
-    <input type="number" [(ngModel)]="id_search">
-    <button (click)="searchInmueble()">Buscar</button>
+    <input type="number" class="input-form" [(ngModel)]="id_search">
+    <button (click)="searchInmueble()" class="registrer-form-button" >Buscar</button>
 
     <div *ngIf="inmueble_is_found">
         <label>Nombre del salón</label>
-        <input type="text" [(ngModel)]="editInmueble.nombre_inmueble">
+        <input type="text" class="input-form" [(ngModel)]="editInmueble.nombre_inmueble">
 
         <label>Salón asignado</label>
-        <select [(ngModel)]="editInmueble.id_salon_asignado">
+        <select class="input-form" [(ngModel)]="editInmueble.id_salon_asignado">
             <option *ngFor="let salon of list_salones" [value]="salon.id_salon">{{salon.nombre_salon}}</option>
         </select>
 
-        <button (click)="editThisImmueble()">Editar</button>
+        <button (click)="editThisImmueble()" class="registrer-form-button">Editar</button>
     </div>
 </main>

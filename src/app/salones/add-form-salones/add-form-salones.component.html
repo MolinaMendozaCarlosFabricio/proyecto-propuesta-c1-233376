@@ -1,21 +1,21 @@
 <h4>Registrar salón</h4>
-<label for="nombre-salon">Nombre del salón</label>
-<input type="text" name="nombre-salon" [(ngModel)]="newSalon.nombre_salon">
+<p>Nombre del salón</p>
+<input type="text" class="input-form" [(ngModel)]="newSalon.nombre_salon">
 <p>Ubicación del salón</p>
-<label for="no-domicilio-salon">No. de domicilio del salón</label>
-<input type="number" name="no-domicilio-salon" [(ngModel)]="newSalon.no_domicilio_salon">
-<label for="calle-salon">Calle del salón</label>
-<input type="text" name="calle-salon" [(ngModel)]="newSalon.calle_salon">
-<label for="colonia-salon">Colonia del salón</label>
-<input type="text" name="colonia-salon" [(ngModel)]="newSalon.colonia_salon">
-<label for="ciudad-salon">Ciudad del salón</label>
-<input type="text" name="ciudad-salon" [(ngModel)]="newSalon.ciudad_salon">
-<label for="codigo-postal-salon">CP del salón</label>
-<input type="text" name="codigo-postal-salon" [(ngModel)]="newSalon.codigo_postal_salon">
+<p>No. de domicilio del salón</p>
+<input type="number" class="input-form" [(ngModel)]="newSalon.no_domicilio_salon">
+<p>Calle del salón</p>
+<input type="text" class="input-form" [(ngModel)]="newSalon.calle_salon">
+<p>Colonia del salón</p>
+<input type="text" class="input-form" [(ngModel)]="newSalon.colonia_salon">
+<p>Ciudad del salón</p>
+<input type="text" class="input-form" [(ngModel)]="newSalon.ciudad_salon">
+<p>CP del salón</p>
+<input type="text" class="input-form" [(ngModel)]="newSalon.codigo_postal_salon">
 <p>Contenido del salón</p>
-<label for="cantidad-sillas-salon">Cantidad de sillas que tiene el salón</label>
-<input type="number" name="cantidad-sillas-salon" [(ngModel)]="newSalon.cantidad_sillas_salon">
-<label for="cantidad-mesas-salon">Cantidad de mesas que tiene el salón</label>
-<input type="number" name="cantidad-mesas-salon" [(ngModel)]="newSalon.cantidad_mesas_salon">
+<p>Cantidad de sillas que tiene el salón</p>
+<input type="number" class="input-form" [(ngModel)]="newSalon.cantidad_sillas_salon">
+<p>Cantidad de mesas que tiene el salón</p>
+<input type="number" class="input-form" [(ngModel)]="newSalon.cantidad_mesas_salon">
 <p></p>
-<button (click)="add_salon()">Guardar</button>
+<button (click)="add_salon()" class="registrer-form-button">Guardar</button>

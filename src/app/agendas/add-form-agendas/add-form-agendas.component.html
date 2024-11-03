@@ -2,42 +2,44 @@
     <h3>Agendar evento</h3>
 
     <label>Asignar salón</label>
-    <select [(ngModel)]="newAgenda.id_salon">
+    <select class="input-form" [(ngModel)]="newAgenda.id_salon">
         <option *ngFor="let salon of list_salones" [value]="salon.id_salon">{{salon.nombre_salon}}</option>
     </select>
 
     <label>Fecha del evento</label>
-    <input type="date" [(ngModel)]="new_fecha">
+    <input type="date" class="input-form" [(ngModel)]="new_fecha">
 
     <label>Hora del evento</label>
-    <input type="time" [(ngModel)]="new_hora">
+    <input type="time" class="input-form" [(ngModel)]="new_hora">
 
     <label>Duración del evento (horas)</label>
-    <input type="number" [(ngModel)]="newAgenda.duracion_horas_evento">
+    <input type="number" class="input-form" [(ngModel)]="newAgenda.duracion_horas_evento">
 
     <label>Asignar personal</label>
     <div>
         <div *ngFor="let empleado of list_empleados">
             <div *ngIf="empleado.estado_personal === 'Activo'">
                 <p>{{empleado.id_personal}}._ {{empleado.nombre_personal}} {{empleado.apellido_personal}}</p>
-                <button *ngIf="!thisEmpleadoIsAlreadyAsignado(empleado.id_personal); else isAsigned" (click)="asignarEmpleado(empleado.id_personal)">Agendar</button>
+                <button class="item-selection-form-button" *ngIf="!thisEmpleadoIsAlreadyAsignado(empleado.id_personal); else isAsigned" (click)="asignarEmpleado(empleado.id_personal)">Agendar</button>
                 <ng-template #isAsigned>
-                    <button (click)="quitarEmpleado(empleado.id_personal)">Desagendar</button>
-                </ng-template>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div *ngFor="let inmueble of list_inmuebles">
-            <div *ngIf="inmueble.estado_inmueble === 'Activo'">
-                <p>{{inmueble.id_inmueble}}._ {{inmueble.nombre_inmueble}}</p>
-                <button *ngIf="!thisInmuebleIsAlreadyAsignado(inmueble.id_inmueble); else thisInmuebleWasAsigned" (click)="asignarInmueble(inmueble.id_inmueble)">Agendar</button>
-                <ng-template #thisInmuebleWasAsigned>
-                    <button (click)="quitarInmueble(inmueble.id_inmueble)">Desagendar</button>
+                    <button class="item-selection-form-button" (click)="quitarEmpleado(empleado.id_personal)">Desagendar</button>
                 </ng-template>
             </div>
         </div>
     </div>
 
-    <button (click)="addAgenda()">Agendar</button>
+    <label>Asignar inmuebles</label>
+    <div>
+        <div *ngFor="let inmueble of list_inmuebles">
+            <div *ngIf="inmueble.estado_inmueble === 'Activo'">
+                <p>{{inmueble.id_inmueble}}._ {{inmueble.nombre_inmueble}}</p>
+                <button class="item-selection-form-button" *ngIf="!thisInmuebleIsAlreadyAsignado(inmueble.id_inmueble); else thisInmuebleWasAsigned" (click)="asignarInmueble(inmueble.id_inmueble)">Agendar</button>
+                <ng-template #thisInmuebleWasAsigned>
+                    <button class="item-selection-form-button" (click)="quitarInmueble(inmueble.id_inmueble)">Desagendar</button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+    <button (click)="addAgenda()" class="registrer-form-button">Agendar</button>
 </main>

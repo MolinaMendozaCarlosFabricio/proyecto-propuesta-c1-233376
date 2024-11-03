@@ -1,5 +1,5 @@
-<table class="table_eventos">
-    <thead class="table_eventos-header">
+<table class="table">
+    <thead class="table-header">
         <tr>
             <th>ID</th>
             <th>Nombre del reservador</th>
@@ -12,7 +12,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody class="table_eventos-salones">
+    <tbody class="table-items">
         <tr *ngFor="let evento of eventos">
             <td>{{evento.id_evento}}</td>
             <td>{{evento.nombre_reservador}}</td>

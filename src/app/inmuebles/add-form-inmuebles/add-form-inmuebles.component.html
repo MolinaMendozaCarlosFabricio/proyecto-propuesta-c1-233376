@@ -2,12 +2,12 @@
     <h3>Registrar inmueble</h3>
 
     <label>Nombre del inmueble</label>
-    <input type="text" [(ngModel)]="newInmueble.nombre_inmueble">
+    <input type="text" class="input-form" [(ngModel)]="newInmueble.nombre_inmueble">
 
     <label>Salón asignado</label>
-    <select [(ngModel)]="newInmueble.id_salon_asignado">
+    <select class="input-form" [(ngModel)]="newInmueble.id_salon_asignado">
         <option *ngFor="let salon of list_salones" [value]="salon.id_salon">{{ salon.nombre_salon }}</option>
     </select>
 
-    <button (click)="addInmueble()">Registrar</button>
+    <button (click)="addInmueble()" class="registrer-form-button">Registrar</button>
 </main>

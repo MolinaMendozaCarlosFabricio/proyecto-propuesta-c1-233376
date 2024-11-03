@@ -1,16 +1,14 @@
-<main>
-    <div class="view_eventos_body-content">
-        <button (click)="open_add_event()">Registrar evento</button>
-        <button (click)="open_edit_event()">Editar evento</button>
-        <div *ngIf="activar_add_evento" class="view_eventos_body-content-form">
-            <button (click)="close_add_event()" class="view_eventos_body-content-button_close">x</button>
+<main class="body-content">
+    <div>
+        <button (click)="open_add_event()" class="buttons-form">Registrar evento</button>
+        <button (click)="open_edit_event()" class="buttons-form">Editar evento</button>
+        <div *ngIf="activar_add_evento" class="form-content">
             <app-add-form-eventos [new_id_evento]="list_eventos.length"></app-add-form-eventos>
-            <button (click)="close_add_event()">Cancel</button>
+            <button (click)="close_add_event()" class="close-form-button">Cancel</button>
         </div>
-        <div *ngIf="activar_edit_evento" class="view_eventos_body-content-form">
-            <button (click)="close_edit_event()" class="view_eventos_body-content-button_close">x</button>
+        <div *ngIf="activar_edit_evento" class="form-content">
             <app-edit-form-eventos></app-edit-form-eventos>
-            <button (click)="close_edit_event()">Cerrar</button>
+            <button (click)="close_edit_event()" class="close-form-button">Cerrar</button>
         </div>
         <app-table-eventos [eventos]="list_eventos"></app-table-eventos>
     </div>
