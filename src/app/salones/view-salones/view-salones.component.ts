@@ -13,7 +13,13 @@ export class ViewSalonesComponent implements OnInit {
   constructor(private listSalonesServices: ListServicesService){}
 
   ngOnInit(): void {
-      this.list_salones = this.listSalonesServices.getSalones();
+      this.listSalonesServices.getSalones().subscribe(
+        response => {
+          console.log("Respuesta del server:");
+          this.list_salones = response;
+        },
+        error => console.log("Error:", error)
+      )
   }
 
   activar_add_salon: boolean = false;

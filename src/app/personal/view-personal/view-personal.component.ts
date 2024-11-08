@@ -13,7 +13,13 @@ export class ViewPersonalComponent implements OnInit {
   constructor(private listPersonalService: ListPersonalService){}
 
   ngOnInit(): void {
-      this.list_personal = this.listPersonalService.getPersonal();
+      this.listPersonalService.getPersonal().subscribe(
+        response => {
+          console.log("It's ok!");
+          this.list_personal = response;
+        },
+        error => console.log("Error:", error)
+      );
   }
 
   activar_add_personal: boolean = false;

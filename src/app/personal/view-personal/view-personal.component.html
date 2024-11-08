@@ -4,7 +4,7 @@
         <button (click)="open_form_add_personal()" class="buttons-form">Registrar personal</button>
         <button (click)="open_form_edit_personal()" class="buttons-form">Editar personal</button>
         <div *ngIf="activar_add_personal" class="form-content">
-            <app-add-form-personal [new_id_personal]="list_personal.length"></app-add-form-personal>
+            <app-add-form-personal></app-add-form-personal>
             <button (click)="close_form_add_personal()" class="close-form-button">Cerrar</button>
         </div>
         <div *ngIf="activar_edit_personal" class="form-content">

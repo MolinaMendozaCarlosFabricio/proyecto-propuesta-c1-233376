@@ -9,9 +9,17 @@ import { ListEventosService } from '../services/list-eventos.service';
   styleUrl: './add-form-eventos.component.css'
 })
 export class AddFormEventosComponent {
-  @Input() new_id_evento: number = 0;
-
-  get_new_id_evento: number = 0;
+  get_new__evento: EntityEventos = {
+    id_evento: 0,
+    nombre_reservador: "",
+    apellido_reservador: "",
+    correo_reservador: "",
+    telefono_reservador: "",
+    giro_evento: "",
+    estado_evento: "Pendiente",
+    cantidad_invitados_evento: 0,
+    costo_evento: 0,
+  };
 
   newEvento : EntityEventos = {
     id_evento: 0,
@@ -32,9 +40,13 @@ export class AddFormEventosComponent {
   constructor(private listEventosServices: ListEventosService, private viewEventosComponent: ViewEventosComponent) {}
 
   add_evento (): void{
-    this.get_new_id_evento = this.new_id_evento;
-    this.newEvento.id_evento = this.new_id_evento;
-    this.listEventosServices.addEvento(this.newEvento);
+    this.listEventosServices.addEvento(this.newEvento).subscribe(
+      response => {
+        console.log("Respuesta del server:", response);
+        this.get_new__evento = response;
+      },
+      error => console.log("Error:", error)
+    );
     this.newEvento = {
       id_evento: 0,
       nombre_reservador: "",

@@ -17,8 +17,6 @@ export class EditFormSalonesComponent {
     colonia_salon: "",
     ciudad_salon: "",
     codigo_postal_salon: 0,
-    cantidad_sillas_salon: 0,
-    cantidad_mesas_salon: 0,
     estado_salon: ""
   }
 
@@ -31,7 +29,13 @@ export class EditFormSalonesComponent {
   constructor(private listSalonesServices: ListServicesService, private viewSalonesComponent : ViewSalonesComponent){}
   
   searchSalon(){
-    this.editSalon = this.listSalonesServices.getSalonById(this.id_search);
+    this.listSalonesServices.getSalonById(this.id_search).subscribe(
+      respone => {
+        console.log("Respuesta del server:")
+        this.editSalon = respone;
+      },
+      error => console.log("Error:", error)
+    );
     if(this.editSalon == null)
       this.dont_exists = true;
     else
@@ -39,7 +43,10 @@ export class EditFormSalonesComponent {
   }
 
   edit_salon (): void{
-    this.listSalonesServices.editSalon(this.editSalon);
+    this.listSalonesServices.editSalon(this.editSalon).subscribe(
+      response => console.log("Respuesta del server:", response),
+      error => console.log("Error:", error)
+    );
     this.editSalon = {
       id_salon: 0,
       nombre_salon: "",
@@ -48,8 +55,6 @@ export class EditFormSalonesComponent {
       colonia_salon: "",
       ciudad_salon: "",
       codigo_postal_salon: 0,
-      cantidad_sillas_salon: 0,
-      cantidad_mesas_salon: 0,
       estado_salon: ""
     }
 

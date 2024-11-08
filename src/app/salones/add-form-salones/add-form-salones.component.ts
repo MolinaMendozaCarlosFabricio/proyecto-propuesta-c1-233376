@@ -9,8 +9,6 @@ import { ListServicesService } from '../services/list-services.service';
   styleUrl: './add-form-salones.component.css'
 })
 export class AddFormSalonesComponent {
-  @Input() new_id_salon: number = 0
-
   newSalon : EntitySalones = {
     id_salon: 0,
     nombre_salon: "",
@@ -19,16 +17,18 @@ export class AddFormSalonesComponent {
     colonia_salon: "",
     ciudad_salon: "",
     codigo_postal_salon: 0,
-    cantidad_sillas_salon: 0,
-    cantidad_mesas_salon: 0,
     estado_salon: "Abierto"
   }
 
   constructor(private listSalonesService: ListServicesService) {}
 
   add_salon (): void{
-    this.newSalon.id_salon = this.new_id_salon;
-    this.listSalonesService.addSalon(this.newSalon)
+
+    this.listSalonesService.addSalon(this.newSalon).subscribe(
+      response => console.log("Respuesta del server:", response),
+      error => console.log("Error:", error)
+    )
+
     this.newSalon = {
       id_salon: 0,
       nombre_salon: "",
@@ -37,8 +37,6 @@ export class AddFormSalonesComponent {
       colonia_salon: "",
       ciudad_salon: "",
       codigo_postal_salon: 0,
-      cantidad_sillas_salon: 0,
-      cantidad_mesas_salon: 0,
       estado_salon: "Abierto"
     }
   }

@@ -9,6 +9,7 @@ import { EventosModule } from "./eventos/eventos.module";
 import { AgendasModule } from './agendas/agendas.module';
 import { PersonalModule } from './personal/personal.module';
 import { InmueblesModule } from './inmuebles/inmuebles.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InmueblesModule } from './inmuebles/inmuebles.module';
     InmueblesModule,
     AgendasModule,
     RouterLink,
-    EventosModule
+    EventosModule,
+    HttpClientModule
 ],
   providers: [],
   bootstrap: [AppComponent]

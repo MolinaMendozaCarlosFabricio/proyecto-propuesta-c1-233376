@@ -19,9 +19,18 @@ export class ColumnPersonalComponent implements OnInit{
 
   ngOnInit(): void {
       for(let i:number = 0; i < this.list_personal_id.length; i++){
-        this.list_personal.push(this.listPersonalServices.getPersonalById(this.list_personal_id[i]));
+        this.listPersonalServices.getPersonalById(this.list_personal_id[i]).subscribe(
+          response => {
+            console.log("It's ok!");
+            this.list_personal.push(response);
+          },
+          error => console.log("Error:", error)
+        );
         if(this.dateEvento < this.actualDate)
-          this.listPersonalServices.desocuparPersonal(this.list_personal_id[i]);
+          this.listPersonalServices.desocuparPersonal(this.list_personal_id[i]).subscribe(
+            response => console.log("Respuesta del server:", response),
+            error => console.log("Error:", error)
+          );
       }
   }
 }

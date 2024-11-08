@@ -14,7 +14,10 @@ export class TableEventosComponent{
   constructor(private listEventosServices: ListEventosService){}
 
   cancel_eventos (delete_this : number): void {
-    this.listEventosServices.cancelEvento(delete_this);
+    this.listEventosServices.cancelEvento(delete_this).subscribe(
+      response => console.log("Respuesta del server:", response),
+      error => console.log("Error:", error)
+    );
   }
 
 }

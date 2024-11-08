@@ -29,13 +29,25 @@ export class EditFormInmueblesComponent {
   constructor(private listInmueblesServices: ListInmueblesService, private listSalonesServices : ListServicesService, private viewInmueblesComponent : ViewInmueblesComponent){}
 
   searchInmueble(){
-    this.editInmueble = this.listInmueblesServices.getInmuebleById(this.id_search);
+    this.listInmueblesServices.getInmuebleById(this.id_search).subscribe(
+      response => {
+        console.log("It's ok!");
+        this.editInmueble = response;
+      },
+      error => console.log("Error:", error)
+    );
     if(this.editInmueble == null)
       this.dont_exists = true;
     else
       this.inmueble_is_found = true
 
-    this.list_salones = this.listSalonesServices.getSalones();
+    this.listSalonesServices.getSalones().subscribe(
+      response => {
+        console.log("Respuesta del serer:");
+        this.list_salones = response;
+      },
+      error => console.log("Error:", error)
+    );
   }
 
   editThisImmueble(){

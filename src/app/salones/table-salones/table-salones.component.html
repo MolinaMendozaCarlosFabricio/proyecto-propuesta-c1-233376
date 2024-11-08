@@ -5,8 +5,6 @@
             <th>Nombre del salón</th>
             <th>Dirección</th>
             <th>Código postal</th>
-            <th>Cantidad de sillas</th>
-            <th>Cantidad de mesas</th>
             <th>Estado del Salón</th>
             <th></th>
         </tr>
@@ -17,8 +15,6 @@
             <td>{{ salon.nombre_salon }}</td>
             <td>No. {{ salon.no_domicilio_salon }}, Calle {{ salon.calle_salon }}, Colonia {{ salon.colonia_salon }}, {{ salon.ciudad_salon }}</td>
             <td>{{ salon.codigo_postal_salon }}</td>
-            <td>{{ salon.cantidad_sillas_salon }}</td>
-            <td>{{ salon.cantidad_mesas_salon }}</td>
             <td>{{ salon.estado_salon }}</td>
             <td><button class="button-form" (click)="down_this_salon(salon.id_salon)">Dar de baja</button></td>
         </tr>

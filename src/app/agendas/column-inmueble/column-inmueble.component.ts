@@ -19,10 +19,19 @@ export class ColumnInmuebleComponent implements OnInit{
 
   ngOnInit(): void {
       for(let i: number = 0; i < this.list_inmuebles_id.length; i++){
-        this.list_inmuebles.push(this.listInmueblesServices.getInmuebleById(this.list_inmuebles_id[i]));
+        this.listInmueblesServices.getInmuebleById(this.list_inmuebles_id[i]).subscribe(
+          response => {
+            console.log("It's ok!");
+            this.list_inmuebles.push(response);
+          },
+          error => console.log("Error:", error)
+        )
 
         if(this.dateEvento < this.actualDate)
-          this.listInmueblesServices.desocuparInmueble(this.list_inmuebles_id[i]);
+          this.listInmueblesServices.desocuparInmueble(this.list_inmuebles_id[i]).subscribe(
+            response => console.log("Respuesta del server:", response),
+            error => console.log("Error:", error)
+          );
       }
   }
 }

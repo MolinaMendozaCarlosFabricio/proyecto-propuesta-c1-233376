@@ -18,14 +18,18 @@ export class ItemInmueblesComponent implements OnInit {
       colonia_salon: "",
       ciudad_salon: "",
       codigo_postal_salon: 0,
-      cantidad_sillas_salon: 0,
-      cantidad_mesas_salon: 0,
       estado_salon: ""
   }
 
   constructor(private listSalonesServices: ListServicesService){}
 
   ngOnInit(): void {
-      this.salon_asignado = this.listSalonesServices.getSalonById(this.id_salon_asignado);
+      this.listSalonesServices.getSalonById(this.id_salon_asignado).subscribe(
+        response => {
+          console.log("Respuesta del servidor")
+          this.salon_asignado = response;
+        },
+        error => console.log("Error", error)
+      );
   }
 }

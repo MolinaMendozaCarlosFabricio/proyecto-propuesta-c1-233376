@@ -10,8 +10,6 @@ import { EntitySalones } from '../../salones/interface/entity-salones';
   styleUrl: './add-form-inmuebles.component.css'
 })
 export class AddFormInmueblesComponent implements OnInit {
-  @Input() new_id_inmueble: number = 0;
-
   list_salones: EntitySalones[] = []
 
   newInmueble: EntityInmuebles = {
@@ -24,12 +22,20 @@ export class AddFormInmueblesComponent implements OnInit {
   constructor(private listInmueblesServices: ListInmueblesService, private listSalonesServices: ListServicesService){}
 
   ngOnInit(): void {
-    this.list_salones = this.listSalonesServices.getSalones();
+    this.listSalonesServices.getSalones().subscribe(
+      response => {
+        console.log("Respuesta del servidor");
+        this.list_salones = response;
+      },
+      error => console.log("Error", error)
+    );
   }
 
   addInmueble(){
-    this.newInmueble.id_inmueble = this.new_id_inmueble;
-    this.listInmueblesServices.addInmueble(this.newInmueble);
+    this.listInmueblesServices.addInmueble(this.newInmueble).subscribe(
+      response => console.log("Respuesta del server:", response),
+      error => console.log("Error:", error)
+    );
     this.newInmueble = {
       id_inmueble: 0,
       nombre_inmueble: "",

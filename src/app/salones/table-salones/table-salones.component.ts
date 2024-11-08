@@ -13,6 +13,9 @@ export class TableSalonesComponent{
   constructor(private listSalonesServices : ListServicesService){}
 
   down_this_salon (down_this_salon: number): void {
-    this.listSalonesServices.downSalon(down_this_salon);
+    this.listSalonesServices.downSalon(down_this_salon).subscribe(
+      response => console.log("Respuesta del server", response),
+      error => console.log("Error:", error)
+    );
   }
 }

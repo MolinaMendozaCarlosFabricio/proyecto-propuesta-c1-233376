@@ -3,7 +3,7 @@
         <button (click)="open_form_add_inmueble()" class="buttons-form">Registrar inmuebles</button>
         <button (click)="open_form_edit_inmueble()" class="buttons-form">Editar inmuebles</button>
         <div *ngIf="activar_add_inmueble" class="form-content">
-            <app-add-form-inmuebles [new_id_inmueble]="list_inmuebles.length"></app-add-form-inmuebles>
+            <app-add-form-inmuebles></app-add-form-inmuebles>
             <button (click)="close_form_add_inmueble()" class="close-form-button">Cerrar</button>
         </div>
         <div *ngIf="activar_edit_inmueble" class="form-content">

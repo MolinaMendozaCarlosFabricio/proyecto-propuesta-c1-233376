@@ -14,7 +14,13 @@ export class ViewEventosComponent implements OnInit {
   constructor(private listEventosService: ListEventosService){}
 
   ngOnInit(): void {
-      this.list_eventos = this.listEventosService.getEventos();
+      this.listEventosService.getEventos().subscribe(
+        response => {
+          console.log("It's ok!");
+          this.list_eventos = response;
+        },
+        error => console.log("Error:", error)
+      );
   }
 
   activar_add_evento : boolean = false;

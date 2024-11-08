@@ -32,8 +32,20 @@ export class EditFormPersonalComponent {
   constructor(private listPersonalServices: ListPersonalService, private viewPersonalComponent: ViewPersonalComponent, private listSalonesServices: ListServicesService){}
 
   searchPersonal(){
-    this.list_salones = this.listSalonesServices.getSalones();
-    this.editEmpleado = this.listPersonalServices.getPersonalById(this.id_search);
+    this.listSalonesServices.getSalones().subscribe(
+      response => {
+        console.log("Respuesta del server:");
+        this.list_salones = response;
+      },
+      error => console.log("Error:", error)
+    );
+    this.listPersonalServices.getPersonalById(this.id_search).subscribe(
+      response => {
+        console.log("It's ok!");
+        this.editEmpleado = response;
+      },
+      error => console.log("Error:", error)
+    );
     if(this.editEmpleado == null)
       this.dont_exists = true;
     else

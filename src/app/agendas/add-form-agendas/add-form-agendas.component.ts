@@ -42,9 +42,27 @@ export class AddFormAgendasComponent implements OnInit {
 
   ngOnInit(): void {
       this.new_id_agenda = this.listAgendasServices.getNewId();
-      this.list_salones = this.listSalonesServices.getSalones();
-      this.list_empleados = this.listPersonalServices.getPersonal();
-      this.list_inmuebles = this.listInmueblesServices.getInmuebles();
+      this.listSalonesServices.getSalones().subscribe(
+        response => {
+          console.log("Respuesta del servidor:");
+          this.list_salones= response;
+        },
+        error => console.log("Error:", error)
+      );
+      this.listPersonalServices.getPersonal().subscribe(
+        response => {
+          console.log("It's ok!");
+          this.list_empleados = response;
+        },
+        error => console.log("Error:", error)
+      );
+      this.listInmueblesServices.getInmuebles().subscribe(
+        response => {
+          console.log("It's ok!");
+          this.list_inmuebles = response;
+        },
+        error => console.log("Error:", error)
+      );
   }
 
   asignarEmpleado(id_empleado: number){
@@ -107,13 +125,21 @@ export class AddFormAgendasComponent implements OnInit {
 
     this.listAgendasServices.add(this.newAgenda);
 
+    /*
     for(let i: number = 0; i < this.newAgenda.ids_personal_reservado.length; i++){
-      this.listPersonalServices.ocuparPersonal(this.newAgenda.ids_personal_reservado[i]);
+      this.listPersonalServices.ocuparPersonal(this.newAgenda.ids_personal_reservado[i]).subscribe(
+        response => console.log("Respuesta del servidor:", response),
+        error => console.log("Error:", error)
+      );
     }
 
     for(let i: number = 0; i < this.newAgenda.ids_inmuebles_reservados.length; i++){
-      this.listInmueblesServices.ocuparInmueble(this.newAgenda.ids_inmuebles_reservados[i]);
+      this.listInmueblesServices.ocuparInmueble(this.newAgenda.ids_inmuebles_reservados[i]).subscribe(
+        response => console.log("Respuesta del servidor:", response),
+        error => console.log("Error:", error)
+      );
     }
+    */
 
     this.newAgenda = {
       id_agenda: 0,

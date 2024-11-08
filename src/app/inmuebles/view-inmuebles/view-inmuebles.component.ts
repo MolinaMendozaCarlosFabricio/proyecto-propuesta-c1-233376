@@ -13,7 +13,13 @@ export class ViewInmueblesComponent implements OnInit {
   constructor(private listInmueblesServices: ListInmueblesService){}
 
   ngOnInit(): void {
-      this.list_inmuebles = this.listInmueblesServices.getInmuebles();
+      this.listInmueblesServices.getInmuebles().subscribe(
+        response => {
+          console.log("It's ok");
+          this.list_inmuebles = response;
+        },
+        error => console.log("Error:", error)
+      );
   }
 
   activar_add_inmueble: boolean = false;

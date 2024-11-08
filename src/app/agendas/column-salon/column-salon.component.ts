@@ -20,12 +20,16 @@ export class ColumnSalonComponent implements OnInit {
     colonia_salon: "",
     ciudad_salon: "",
     codigo_postal_salon: 0,
-    cantidad_sillas_salon: 0,
-    cantidad_mesas_salon: 0,
     estado_salon: ""
   }
 
   ngOnInit(): void {
-      this.salon = this.listSalonesServices.getSalonById(this.id_salon);
+      this.listSalonesServices.getSalonById(this.id_salon).subscribe(
+        response => {
+          console.log("Respuesta recibida:");
+          this.salon = response;
+        },
+        error => console.log("Error:", error)
+      );
   }
 }

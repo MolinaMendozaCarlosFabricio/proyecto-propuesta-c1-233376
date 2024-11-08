@@ -27,5 +27,5 @@
     <button (click)="add_evento()" class="registrer-form-button">Siguiente</button>
 </div>
 <div *ngIf="open_agendar">
-    <app-add-form-agendas></app-add-form-agendas>
+    <app-add-form-agendas [id_evento_to_link]="get_new__evento.id_evento"></app-add-form-agendas>
 </div>

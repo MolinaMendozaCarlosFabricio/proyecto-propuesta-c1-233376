@@ -32,7 +32,13 @@ export class EditFormEventosComponent {
   constructor(private viewEventosComponent: ViewEventosComponent, private listEventosServices: ListEventosService) {}
 
   searchEvento () : void {
-    this.editEvent = this.listEventosServices.getEventoById(this.id_search);
+    this.listEventosServices.getEventoById(this.id_search).subscribe(
+      response => {
+        console.log("It's ok");
+        this.editEvent = response;
+      },
+      error => console.log("Error:", error)
+    );
     if(this.editEvent == null)
       this.dont_exists = true;
     else
@@ -40,7 +46,10 @@ export class EditFormEventosComponent {
   }
   
   edit_evento (): void{
-    this.listEventosServices.editEvento(this.editEvent);
+    this.listEventosServices.editEvento(this.editEvent).subscribe(
+      response => console.log("Respuesta del server:", response),
+      error => console.log("Error:", error)
+    );
     this.editEvent = {
       id_evento: 0,
       nombre_reservador: "",

@@ -13,6 +13,9 @@ export class TabkePersonalComponent {
   constructor(private listPersonalServices: ListPersonalService){}
 
   down_this_personal(id_personal: number){
-    this.listPersonalServices.downPersonal(id_personal);
+    this.listPersonalServices.downPersonal(id_personal).subscribe(
+      response => console.log("Respuesta del servidor:", response),
+      error => console.log("Error:", error)
+    );
   }
 }

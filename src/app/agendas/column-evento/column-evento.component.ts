@@ -28,9 +28,18 @@ export class ColumnEventoComponent implements OnInit{
   }
 
   ngOnInit(): void {
-      this.evento = this.listEventosServices.getEventoById(this.id_evento);
+      this.listEventosServices.getEventoById(this.id_evento).subscribe(
+        response => {
+          console.log("It's ok!");
+          this.evento = response;
+        },
+        error => console.log("Error:", error)
+      );
 
       if(this.dateEvento < this.actualDate)
-        this.listEventosServices.finishEvento(this.evento.id_evento);
+        this.listEventosServices.finishEvento(this.evento.id_evento).subscribe(
+          response => console.log("Respuesta del server:", response),
+          error => console.log("Error:", error)
+        );
   }
 }
