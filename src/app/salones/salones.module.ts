@@ -17,7 +17,7 @@ import { EditFormSalonesComponent } from './edit-form-salones/edit-form-salones.
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     ViewSalonesComponent

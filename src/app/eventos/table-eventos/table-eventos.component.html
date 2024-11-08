@@ -1,5 +1,5 @@
-<table class="table_eventos">
-    <thead class="table_eventos-header">
+<table class="table">
+    <thead class="table-header">
         <tr>
             <th>ID</th>
             <th>Nombre del reservador</th>
@@ -12,7 +12,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody class="table_eventos-salones">
+    <tbody class="table-items">
         <tr *ngFor="let evento of eventos">
             <td>{{evento.id_evento}}</td>
             <td>{{evento.nombre_reservador}}</td>
@@ -24,7 +24,7 @@
             <td>{{evento.cantidad_invitados_evento}}</td>
             <td>{{evento.costo_evento}}</td>
             <td>{{evento.estado_evento}}</td>
-            <td><button (click)="delete_eventos(evento.id_evento)">Delete</button></td>
+            <td><button (click)="cancel_eventos(evento.id_evento)">Cancelar</button></td>
         </tr>
     </tbody>
 </table>

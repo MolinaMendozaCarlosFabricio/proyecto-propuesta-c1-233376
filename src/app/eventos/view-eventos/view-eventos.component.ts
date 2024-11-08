@@ -1,13 +1,27 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TableEventosComponent } from '../table-eventos/table-eventos.component';
+import { EntityEventos } from '../interface/entity-eventos';
+import { ListEventosService } from '../services/list-eventos.service';
 
 @Component({
   selector: 'app-view-eventos',
   templateUrl: './view-eventos.component.html',
   styleUrl: './view-eventos.component.css'
 })
-export class ViewEventosComponent {
-  @ViewChild(TableEventosComponent) tableEventosComponent!: TableEventosComponent;
+export class ViewEventosComponent implements OnInit {
+  list_eventos: EntityEventos[] = [];
+
+  constructor(private listEventosService: ListEventosService){}
+
+  ngOnInit(): void {
+      this.listEventosService.getEventos().subscribe(
+        response => {
+          console.log("It's ok!");
+          this.list_eventos = response;
+        },
+        error => console.log("Error:", error)
+      );
+  }
 
   activar_add_evento : boolean = false;
   activar_edit_evento: boolean = false;
@@ -28,9 +42,5 @@ export class ViewEventosComponent {
 
   close_edit_event (): void {
     this.activar_edit_evento = false;
-  }
-
-  refresh_table(): void{
-    this.tableEventosComponent.print_eventos();
   }
 }

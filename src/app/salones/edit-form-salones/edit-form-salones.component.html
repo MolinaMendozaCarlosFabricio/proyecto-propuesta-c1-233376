@@ -1,26 +1,22 @@
 <h4>Editar info. del salón</h4>
-<label for="id-salon">Ingrese el ID del salón</label>
-<input type="number" name="id-salon" [(ngModel)]="id_search">
-<button (click)="searchSalon()">Buscar</button>
+<p>Ingrese el ID del salón</p>
+<p *ngIf="dont_exists">Este salón no existe</p>
+<input type="number" class="input-form" [(ngModel)]="id_search">
+<button (click)="searchSalon()" class="registrer-form-button">Buscar</button>
 <div *ngIf="salon_is_found">
     <label for="nombre-salon">Nombre del salón</label>
-    <input type="text" name="nombre-salon" [(ngModel)]="editSalon.nombre_salon">
+    <input type="text" class="input-form" [(ngModel)]="editSalon.nombre_salon">
     <p>Ubicación del salón</p>
     <label for="no-domicilio-salon">No. de domicilio del salón</label>
-    <input type="number" name="no-domicilio-salon" [(ngModel)]="editSalon.no_domicilio_salon">
+    <input type="number" class="input-form" [(ngModel)]="editSalon.no_domicilio_salon">
     <label for="calle-salon">Calle del salón</label>
-    <input type="text" name="calle-salon" [(ngModel)]="editSalon.calle_salon">
+    <input type="text" class="input-form" [(ngModel)]="editSalon.calle_salon">
     <label for="colonia-salon">Colonia del salón</label>
-    <input type="text" name="colonia-salon" [(ngModel)]="editSalon.colonia_salon">
+    <input type="text" class="input-form" [(ngModel)]="editSalon.colonia_salon">
     <label for="ciudad-salon">Ciudad del salón</label>
-    <input type="text" name="ciudad-salon" [(ngModel)]="editSalon.ciudad_salon">
+    <input type="text" class="input-form" [(ngModel)]="editSalon.ciudad_salon">
     <label for="codigo-postal-salon">CP del salón</label>
-    <input type="text" name="codigo-postal-salon" [(ngModel)]="editSalon.codigo_postal_salon">
-    <p>Contenido del salón</p>
-    <label for="cantidad-sillas-salon">Cantidad de sillas que tiene el salón</label>
-    <input type="number" name="cantidad-sillas-salon" [(ngModel)]="editSalon.cantidad_sillas_salon">
-    <label for="cantidad-mesas-salon">Cantidad de mesas que tiene el salón</label>
-    <input type="number" name="cantidad-mesas-salon" [(ngModel)]="editSalon.cantidad_mesas_salon">
+    <input type="text" class="input-form" [(ngModel)]="editSalon.codigo_postal_salon">
     <p></p>
-    <button (click)="edit_salon()">Guardar cambios</button>
+    <button (click)="edit_salon()" class="registrer-form-button">Guardar cambios</button>
 </div>

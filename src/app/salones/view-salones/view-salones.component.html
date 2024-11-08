@@ -1,17 +1,16 @@
-<main class="view_salones_body">
+<main class="body-content">
+    <h1>Salones</h1>
     <div class="view_salones_body-content">
-        <button (click)="open_form_add_salon()" class="view_salones_body-content-add_form_button">Agregar salón</button>
-        <button (click)="open_form_edit_salon()">Editar Salón</button>
-        <div *ngIf="activar_add_salon" class="view_salones_body-content-add_form">
-            <button (click)="close_form_add_salon()" class="view_salones_body-content-button_close">x</button>
+        <button (click)="open_form_add_salon()" class="buttons-form">Agregar salón</button>
+        <button (click)="open_form_edit_salon()" class="buttons-form">Editar Salón</button>
+        <div *ngIf="activar_add_salon" class="form-content">
             <app-add-form-salones></app-add-form-salones>
-            <button (click)="close_form_add_salon()">Cerrar</button>
+            <button (click)="close_form_add_salon()" class="close-form-button">Cerrar</button>
         </div>
-        <div *ngIf="activar_edit_salon" class="view_salones_body-content-edit_form">
-            <button (click)="close_form_edit_salon()" class="view_salones_body-content-button_close">x</button>
+        <div *ngIf="activar_edit_salon" class="form-content">
             <app-edit-form-salones></app-edit-form-salones>
-            <button (click)="close_form_edit_salon()">Cerrar</button>
+            <button (click)="close_form_edit_salon()" class="close-form-button">Cerrar</button>
         </div>
-        <app-table-salones></app-table-salones>
+        <app-table-salones [salones]="list_salones"></app-table-salones>
     </div>
 </main>

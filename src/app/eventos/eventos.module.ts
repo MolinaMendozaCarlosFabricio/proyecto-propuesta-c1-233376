@@ -5,6 +5,7 @@ import { TableEventosComponent } from './table-eventos/table-eventos.component';
 import { AddFormEventosComponent } from './add-form-eventos/add-form-eventos.component';
 import { EditFormEventosComponent } from './edit-form-eventos/edit-form-eventos.component';
 import { FormsModule } from '@angular/forms';
+import { AgendasModule } from "../agendas/agendas.module";
 
 
 
@@ -17,8 +18,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
-  ],
+    FormsModule,
+    AgendasModule
+],
   exports: [
     ViewEventosComponent
   ]
