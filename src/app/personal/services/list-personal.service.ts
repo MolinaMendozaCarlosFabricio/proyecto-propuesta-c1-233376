@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ListPersonalService {
   list_personal: EntityPersonal[] = [];
 
-  url_api: string = 'http://localhost:3000/personal/';
+  url_api: string = 'http://34.238.16.229/personal/';
 
   getPersonalFromLocalStorage(){
     const list_personal_from_lc = localStorage.getItem("list_personal");

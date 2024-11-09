@@ -10,7 +10,7 @@ export class ListServicesService {
 
   listSalones: EntitySalones[] = [];
 
-  private url_api: string = 'http://localhost:3000/salones/'
+  private url_api: string = 'http://34.238.16.229/salones/'
 
   getSalonesFromLocalStorage(){
     const list_salones_from_lc = localStorage.getItem("list_salones");

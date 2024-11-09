@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class ListInmueblesService {
   list_inmuebles: EntityInmuebles[] = [];
 
-  url_api: string = 'http://localhost:3000/inmuebles/'
+  url_api: string = 'http://34.238.16.229/inmuebles/'
 
   getInmueblesFromLocalStorage(){
     const list_inmuebles_lc = localStorage.getItem("list_inmuebles");

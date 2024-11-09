@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ListEventosService {
   list_eventos: EntityEventos[] = [];
 
-  url_api: string = 'http://localhost:3000/eventos/';
+  url_api: string = 'http://34.238.16.229/eventos/';
 
   getEventosFromLocalStorage(){
     const list_eventos_from_lc = localStorage.getItem("list_eventos");
